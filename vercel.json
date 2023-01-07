@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "server.js", "use": "@now/node" }
+    ],
+    "env": {
+        "MYSQL_HOST": "@mysql_host",
+        "MYSQL_USER": "@mysql_user",
+        "MYSQL_PASSWORD": "@mysql_password",
+        "MYSQL_DATABASE": "@mysql_database"
+    },
+    "routes": [
+        { "src": "/api/(.*)", "dest": "server.js" }
+    ],
+    "regions": ["bru"],
+    "meta": {
+        "mysql": {
+            "instances": [{
+                "name": "mysql",
+                "env": {
+                    "MYSQL_HOST": "b5uf5p85y0a91d1pqulb-mysql.services.clever-cloud.com",
+                    "MYSQL_USER": "uvmyzfiv7n6mmo9h",
+                    "MYSQL_PASSWORD": "Ogp4IWpylMYijL5WI5wT",
+                    "MYSQL_DATABASE": "b5uf5p85y0a91d1pqulb"
+                }
+            }]
+        }
+    }
+}
