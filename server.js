@@ -40,7 +40,7 @@ app.get('/api/blogs/:id', (request, response) => {
     });
 });
 
-app.get('/api/blogs', (request, response) => {
+app.get('/api/blogsposts', (request, response) => {
   const sql = 'SELECT * FROM blogs';
   connection.query(sql, (error, result) => {
     if (error) throw error;
