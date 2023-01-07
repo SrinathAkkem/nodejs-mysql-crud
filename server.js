@@ -20,7 +20,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/blogs', (request, response) => {
-    const { title, content } = request.body;
+    const title = request.body.title;
+    const content = request.body.content;
     const sql = 'INSERT INTO blogs (title, content) VALUES (?, ?)';
     connection.query(sql, [title, content], (error, result) => {
         if (error) throw error;
@@ -40,7 +41,7 @@ app.get('/api/blogs/:id', (request, response) => {
     });
 });
 
-app.get('/api/blogsposts', (request, response) => {
+app.get('/api/blogposts', (request, response) => {
   const sql = 'SELECT * FROM blogs';
   connection.query(sql, (error, result) => {
     if (error) throw error;
