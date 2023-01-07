@@ -40,6 +40,13 @@ app.get('/api/blogs/:id', (request, response) => {
     });
 });
 
+app.get('/api/blogs', (request, response) => {
+  const sql = 'SELECT * FROM blogs';
+  connection.query(sql, (error, result) => {
+    if (error) throw error;
+    response.send(result);
+  });
+});
 
 app.put('/api/blogs/:id', (request, response) => {
     const { title, content } = request.body;
